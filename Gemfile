@@ -6,6 +6,5 @@ gem 'rubocop', '~> 0.57.2'
 gem 'bundler'
 gem 'google_drive'
 gem 'nokogiri'
-gem 'open-uri'
 gem 'json'
 
