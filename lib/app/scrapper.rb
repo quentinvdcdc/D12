@@ -1,5 +1,4 @@
 class Scrapper
-
 	def get_townhall_email(townhall_url)
 		doc = Nokogiri::HTML(open(townhall_url))
 		return doc.css('tbody').css('tr')[3].css('td')[1].to_s.match(/>(.*)</).to_s.delete("><")
@@ -36,8 +35,8 @@ class Scrapper
 		get_townhall_urls.each_with_index do |hash, i| #boucle pour écrire clé et valeur sur cq ligne
 			ws[i+1, 1] = hash.keys[0] 
 			ws[i+1, 2] = hash.values[0]
-			ws.save
 		end
+		ws.save
 		ws.reload
 	end
 

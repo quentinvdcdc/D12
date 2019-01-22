@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'csv'
 require 'bundler'
 Bundler.require
 
