@@ -1,11 +1,20 @@
 require_relative './lib/scrapper'
-require_relative './lib/emailsender'
 $:.unshift File.expand_path("./../lib", __FILE__)
-require 'lib/scrapper'
+require 'scrapper'
 require 'bundler'
 require 'google_drive'
-
-
+require 'json'
+require 'pry'
 
 def save_as_JSON
-render :json => my_object
+	tempHash = {}
+	get_townhall_urls.each do |hash|
+		tempHash[hash.keys[0]] = hash.values[0]
+	end
+
+	File.open("db/emails.json","w") do |f|
+  	f.write(tempHash.to_json)
+	end
+end
+
+save_as_JSON
